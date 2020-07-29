@@ -286,5 +286,5 @@ bot.bg_task = bot.loop.create_task(freeSteamInfo())
 # bot.bg_task = bot.loop.create_task(checkCrackGame())
 # bot.bg_task = bot.loop.create_task(newsGamePlayGround())
 # bot.bg_task = bot.loop.create_task(deleteVoiceChannel())
-bot.run(str(token))
+bot.run(os.environ.get('BOT_TOKEN'))
 
