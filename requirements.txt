@@ -13,10 +13,8 @@ lxml
 datetime
 asyncio
 selenium
-json
 time
 random
 sqlite3
 re
-PIL
-sys
+Pillow
