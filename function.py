@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 import re
+import os
 from PIL import Image, ImageDraw, ImageFont
 # import sys
 import datetime
