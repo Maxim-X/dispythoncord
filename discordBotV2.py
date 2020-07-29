@@ -21,7 +21,7 @@ import asyncio
 bot = commands.Bot(command_prefix='!')
 conn = sqlite3.connect("Discord.db")
 cursor = conn.cursor()
-WorkDB = WorkDB()
+WorkDB = WorkDB() 
 powered = "powered by MAXIM"
 mainGuildId = 412939700748419084
 mainGuildUrl = "https://discord.gg/GmYNePW"
