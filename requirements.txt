@@ -13,5 +13,4 @@ lxml
 datetime
 asyncio
 selenium
-re
 Pillow
