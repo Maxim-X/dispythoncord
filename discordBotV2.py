@@ -1,27 +1,9 @@
 import discord
 from discord.ext import commands
-# import os
-# import logging
-# import pyowm
-# import pymysql
-# from pymysql.cursors import DictCursor
-# import pymysql.cursors
-# import requests
-# from bs4 import BeautifulSoup
-# import re
-# import lxml
-# import datetime
-# import asyncio
-
-# import random
 from discord.utils import get
 
 from datetime import timedelta
 
-# 
-# import time
-# import sqlite3
-from tabulate import tabulate #удобный модуль для рисования таблиц
 import function as func
 from function import infoGameFromShop
 from function import WorkDataBase as WorkDB

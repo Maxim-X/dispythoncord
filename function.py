@@ -11,7 +11,6 @@ import re
 from PIL import Image, ImageDraw, ImageFont
 import sys
 import datetime
-from memory_profiler import memory_usage
 
 conn = sqlite3.connect("Discord.db")
 cursor = conn.cursor()
@@ -302,7 +301,6 @@ def infoСommand():
 	return embed
 
 def creatingImageStats(id_guild, bot):
-	print(memory_usage())
 	global cursor
 	global conn
 	try:
@@ -373,7 +371,6 @@ def creatingImageStats(id_guild, bot):
 	nameImage = "Image.png"
 	tatras.save(nameImage)
 	file = discord.File(fp=nameImage)
-	print(memory_usage())
 	return file
 
 def timeSpentOnTheChannel(member, before, after):
