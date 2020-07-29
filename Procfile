@@ -1,1 +1,1 @@
-worker: python disbot.py
+worker: python discordBotV2.py
