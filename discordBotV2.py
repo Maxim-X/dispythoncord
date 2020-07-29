@@ -213,15 +213,15 @@ async def db(ctx):
 	global conn
 	# cursor.execute('DROP TABLE user_activity')
 	# cursor.execute('DROP TABLE AllRequest')
-	# cursor.execute(f'CREATE TABLE "AllRequest" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"Request" TEXT, "status" TEXT, "nameShop" TEXT, "nameGame" TEXT, "price" TEXT,"urlGame" TEXT, "date" DATE)')
+	cursor.execute(f'CREATE TABLE "AllRequest" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"Request" TEXT, "status" TEXT, "nameShop" TEXT, "nameGame" TEXT, "price" TEXT,"urlGame" TEXT, "date" DATE)')
 	# cursor.execute(f"INSERT INTO AllRequest (Request, status, nameShop, nameGame, price, urlGame, date) VALUES ('GameReq','Zaka-Zaka', 'Success', 'NameGame', '100', 'https//google.com', date('now'))")
 	# print("====================")
 	# for row in cursor.execute(f"SELECT * FROM AllRequest"):
 	# 	print(str(row[0])+"\t"+str(row[1])+"\t"+str(row[2])+"\t"+str(row[3])+"\t"+str(row[4])+"\t"+str(row[5])+"\t"+str(row[6])+"\t"+str(row[7]))
 	# print("====================")
-	# cursor.execute(f'CREATE TABLE "AppConfig" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"lastNewsFreeSteam" TEXT)')
-	# cursor.execute(f"INSERT INTO AppConfig (lastNewsFreeSteam) VALUES ('NoneText')")
-	# cursor.execute(f'CREATE TABLE "usersOnTheChannel" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"id_guild" MEDIUMINT,"id_user", "date_time" DATETIME)')
+	cursor.execute(f'CREATE TABLE "AppConfig" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"lastNewsFreeSteam" TEXT)')
+	cursor.execute(f"INSERT INTO AppConfig (lastNewsFreeSteam) VALUES ('NoneText')")
+	cursor.execute(f'CREATE TABLE "usersOnTheChannel" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"id_guild" MEDIUMINT,"id_user", "date_time" DATETIME)')
 	cursor.execute(f'CREATE TABLE "user_activity" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"id_guild" MEDIUMINT,"id_user" MEDIUMINT, "connect_activity" MEDIUMINT)')
 	conn.commit()
 
