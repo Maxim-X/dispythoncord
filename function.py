@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 import time
 import re
 from PIL import Image, ImageDraw, ImageFont
-import sys
+# import sys
 import datetime
 
 conn = sqlite3.connect("Discord.db")
