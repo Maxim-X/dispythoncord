@@ -1,0 +1,5 @@
+2019-08-16 02:05:48,808:DEBUG:discord.client: on_message has successfully been registered as an event
+2019-08-16 02:05:48,808:INFO:discord.client: logging in using static token
+2019-08-16 02:05:51,880:DEBUG:discord.http: GET https://discordapp.com/api/v7/users/@me with None has returned 401
+2019-08-16 02:05:51,880:INFO:discord.client: Cleaning up tasks.
+2019-08-16 02:05:51,881:INFO:discord.client: Closing the event loop.

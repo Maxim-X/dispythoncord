@@ -1,0 +1,15 @@
+discord.py
+aiohttp
+websockets
+chardet
+asyncio
+PyNaCl
+requests
+pyowm
+pymysql
+bs4
+BeautifulSoup4
+lxml
+datetime
+asyncio
+selenium
