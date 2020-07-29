@@ -13,6 +13,6 @@ lxml
 datetime
 asyncio
 selenium
-sqlite3
+pysqlite
 re
 Pillow
