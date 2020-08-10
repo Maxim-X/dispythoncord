@@ -232,6 +232,17 @@ async def db(ctx):
 
 @bot.command()
 @commands.has_permissions(administrator=True)
+async def dbcheck(ctx):
+	global cursor
+	global conn
+	print("====================")
+	for row in cursor.execute(f"select * from sqlite_masterwhere type = 'table'"):
+		print(str(row))
+	print("====================")
+
+
+@bot.command()
+@commands.has_permissions(administrator=True)
 async def info(ctx):
 	embed = func.infoСommand()
 	await ctx.send(embed=embed)
