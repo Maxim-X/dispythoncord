@@ -33,7 +33,7 @@ mainLoopStatus = False  # Variable which starts or stops the main loop
 dataConfig = None  # Loaded configuration
 langM = None
 
-def EpicGamesFreeGame():
+def EpicGamesFreeGame(name_guild):
 	global mainLoopStatus
 	global dataConfig  # Gets config values
 	global langM
@@ -50,8 +50,14 @@ def EpicGamesFreeGame():
 	epic_mod.obj.process_request()
 	print(epic_mod.obj.gameData)
 	allGameInfo = epic_mod.obj.gameData
+	timeEnd = ""
+	for GameInfo in allGameInfo:
+		if GameInfo[2] != None:
+			timeEnd = f"Данная игра будет бесплатна до {GameInfo[2]}, успей добавить ее в свою библиотеку!"
+			break
+
 	if len(allGameInfo) == 1:
-		embed=discord.Embed(title="Бесплатные игры в Epic Games | Store", description=f"Привет всем участникам канала!\nСейчас в магазине Epic Games | Store бесплатно раздается: ``{allGameInfo[0][0]}``\n\nДанная игра будет бесплатна до {allGameInfo[0][2]}, успей добавить ее в свою библиотеку!\n[Ссылка на игру]({allGameInfo[0][1]})", color=0xff7d25)
+		embed=discord.Embed(title="Бесплатные игры в Epic Games | Store", description=f"Привет всем участникам канала!\nСейчас в магазине Epic Games | Store бесплатно раздается: ``{allGameInfo[0][0]}``\n\n{timeEnd}\n[Ссылка на игру]({allGameInfo[0][1]})", color=0xff7d25)
 	else:
 		# Собираем список игр
 		for GameInfo in allGameInfo:
@@ -60,10 +66,9 @@ def EpicGamesFreeGame():
 			else:
 				allNameGame = "`` "+GameInfo[0]+" ``\n"
 		# Собираем список игр
-		embed=discord.Embed(title="Бесплатные игры в Epic Games | Store", description=f"Привет всем участникам канала!\nСейчас в магазине Epic Games | Store бесплатно раздаются: {allNameGame}\nДанные игры будут бесплатны до {allGameInfo[0][2]}, успей добавить их в свою библиотеку!\n[Ссылка на игры](https://www.epicgames.com/store/ru/free-games)", color=0xff7d25)
+		embed=discord.Embed(title="Бесплатные игры в Epic Games | Store", description=f"Привет всем участникам канала!\nСейчас в магазине Epic Games | Store бесплатно раздаются: {allNameGame}\n{timeEnd}\n[Ссылка на игры](https://www.epicgames.com/store/ru/free-games)", color=0xff7d25)
 	embed.set_image(url=allGameInfo[random.randint(0,len(allGameInfo)-1)][3])
-	embed.set_footer(text="Сервер "+str(bot.guilds[0].name))
-	# print(str(ctx.channel.id))
+	embed.set_footer(text="Сервер "+str(name_guild))
 	return embed
 
 def sleepOneHours():
@@ -128,7 +133,7 @@ async def on_ready():
 @bot.command()
 @commands.has_permissions(administrator=True)
 async def EGS(ctx):
-	embed = EpicGamesFreeGame()
+	embed = EpicGamesFreeGame(ctx.guild.name)
 	await ctx.send(embed=embed)
 
 @bot.command()

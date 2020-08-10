@@ -62,7 +62,11 @@ class Scraping:
             # Parses relevant data such as name and link and adds It to gameData
             urlName = self.searchAtrName(i["customAttributes"], "com.epicgames.app.productSlug")
             locale.setlocale(locale.LC_ALL, 'ru_RU.utf8')
-            dateEnd = datetime.datetime.strptime(i["price"]["lineOffers"][0].get("appliedRules")[0].get("endDate"), '%Y-%m-%dT%H:%M:%S.%fZ').strftime("%d %b")
+            try:
+                dateEnd = datetime.datetime.strptime(i["price"]["lineOffers"][0].get("appliedRules")[0].get("endDate"), '%Y-%m-%dT%H:%M:%S.%fZ').strftime("%d %b")
+            except:
+                dateEnd = None
+            
             imagePost = i["keyImages"][0]["url"]
             if urlName is not None:
                 temp = (i["title"], str(self.baseUrl+urlName), dateEnd, imagePost) # dateEnd i["customAttributes"]).get("com.epicgames.app.blacklist")
