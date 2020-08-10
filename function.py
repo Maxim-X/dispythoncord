@@ -63,10 +63,15 @@ class WorkDataBase(object):
 
 def chromeOpen():
 	chrome_options = webdriver.ChromeOptions()
+	print("=========")
 	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	print("=========")
 	chrome_options.add_argument("--headless")
+	print("=========")
 	chrome_options.add_argument("--disable-dev-shm-usage")
+	print("=========")
 	chrome_options.add_argument("--no-sandbox")
+	print("=========")
 	return webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 def soarchAvailGame(response):
