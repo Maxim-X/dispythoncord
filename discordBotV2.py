@@ -143,7 +143,8 @@ async def EGS(ctx):
 @bot.command()
 async def freegame(ctx):
 	embed = freeSteamInfoHandmade(ctx.message.channel.id)
-	await ctx.send(embed=embed)
+	if embed != None:
+		await ctx.send(embed=embed)
 
 @bot.command(pass_context= True)
 async def price(ctx, *, nameGame):
