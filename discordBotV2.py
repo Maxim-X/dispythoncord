@@ -117,12 +117,15 @@ def freeSteamInfoHandmade(idChannel):
 	driver = func.chromeOpen()
 	allInfo = func.freeSteam(driver)
 	driver.close()
-	embed=discord.Embed(title=allInfo["nameNews"], description=allInfo["titleNews"], color=0x3498e2)
-	embed.set_image(url=allInfo["imageNews"])
-	if Guild.id != mainGuildId:
-		embed.set_author(name=powered, url=mainGuildUrl) 
-	embed.set_footer(text=str(Guild.name))
-	return embed
+	if allInfo != None:
+		embed=discord.Embed(title=allInfo["nameNews"], description=allInfo["titleNews"], color=0x3498e2)
+		embed.set_image(url=allInfo["imageNews"])
+		if Guild.id != mainGuildId:
+			embed.set_author(name=powered, url=mainGuildUrl) 
+		embed.set_footer(text=str(Guild.name))
+		return embed
+	else:
+		return None
 		
 
 
@@ -134,7 +137,8 @@ async def on_ready():
 @commands.has_permissions(administrator=True)
 async def EGS(ctx):
 	embed = EpicGamesFreeGame(ctx.guild.name)
-	await ctx.send(embed=embed)
+	if embed != None:
+		await ctx.send(embed=embed)
 
 @bot.command()
 async def freegame(ctx):
