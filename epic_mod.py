@@ -12,14 +12,12 @@ class Scraping:
         self.baseUrl = "https://www.epicgames.com/store/ru-RU/product/"
         self.gameData = []  # Data from free games (name, link)
         self.validGameData = []  # Verified games from the DB method
-
         self.endpoint = "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=ru-RU&country" \
-                        "=RU&allowCountries=RU "
+                        "=RU&allowCountries=RU"
 
         self.data = None
 
     def reset_request(self):
-
         self.gameData = []
         self.data = None
         self.validGameData = []
